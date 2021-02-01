@@ -6,17 +6,12 @@ import Zoom from "@material-ui/core/Zoom";
 function CreateArea(props) {
   const [newNote, setNewNote] = useState({ title: "", content: "" });
   const [isFocus, setIsFocus] = useState(false);
+
+  //Recojo los datos del input y textarea
   function handleChange(event) {
     const { name, value } = event.target;
-
     setNewNote((prevNote) => {
-      if (name === "title") {
-        return { title: value, content: prevNote.content };
-      } else if (name === "content") {
-        return { title: prevNote.title, content: value };
-      }
-      //Otra forma (más corta) (igual que todo el if de arriba)
-      //return { ...prevNote, [name]: value };
+      return { ...prevNote, [name]: value };
     });
   }
 
